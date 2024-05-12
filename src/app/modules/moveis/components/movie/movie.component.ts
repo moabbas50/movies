@@ -1,17 +1,13 @@
-import { Component,  OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoveisService } from 'src/app/services/moveis.service';
 
-
-
-
 @Component({
-  selector: 'app-movies',
-  templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.css']
+  selector: 'app-movie',
+  templateUrl: './movie.component.html',
+  styleUrls: ['./movie.component.css']
 })
-
-export class MoviesComponent implements OnInit {
+export class MovieComponent implements OnInit {
   num = 3500;
   movie!: any;
   crew!: any;
@@ -103,4 +99,3 @@ export class MoviesComponent implements OnInit {
     }
   }
 }
-

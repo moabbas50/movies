@@ -5,9 +5,11 @@ import { NowPlayingComponent } from './components/now-playing/now-playing.compon
 import { PopularComponent } from './components/popular/popular.component';
 import { TopRateComponent } from './components/top-rate/top-rate.component';
 import { UpComingComponent } from './components/up-coming/up-coming.component';
+import { MovieComponent } from './components/movie/movie.component';
 
 const routes: Routes = [
   {path:"movie/:id",component:MoviesComponent},
+  {path:"movies/:id",component:MovieComponent},
   {path:"Nowplaying",component:NowPlayingComponent},
   {path:"popular",component:PopularComponent},
   {path:"TopRate",component:TopRateComponent},

@@ -1,30 +1,25 @@
-import { Component,  OnInit  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MoveisService } from 'src/app/services/moveis.service';
-
-
-
+import { TvshowidService } from 'src/app/services/tvshowid.service';
 
 @Component({
-  selector: 'app-movies',
-  templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.css']
+  selector: 'app-tvv',
+  templateUrl: './tvv.component.html',
+  styleUrls: ['./tvv.component.css']
 })
-
-export class MoviesComponent implements OnInit {
+export class TvvComponent implements OnInit {
   num = 3500;
-  movie!: any;
+  tvser!: any;
   crew!: any;
   keywords!: any;
   media!: any;
   movieID!: any;
   imagees: any;
   responsiveOptions: any[] | undefined;
-  constructor(public rout: Router, public acroute: ActivatedRoute, public moviess: MoveisService) {
+  constructor(public rout: Router, public acroute: ActivatedRoute, public tvsh:TvshowidService) {
     this.movieID = this.acroute.snapshot.paramMap.get('id')
 
   }
-
 
 
   ngOnInit(): void {
@@ -35,23 +30,23 @@ export class MoviesComponent implements OnInit {
     //     this.refreshPage();
     //   }
     // });
-    this.moviess.getmovie(this.movieID).subscribe((data) => {
-      this.movie = data
+    this.tvsh.gettv(this.movieID).subscribe((data) => {
+      this.tvser = data
     });
 
-    this.moviess.getcrew(this.movieID).subscribe((dataa) => {
+    this.tvsh.getcrew(this.movieID).subscribe((dataa) => {
       this.crew = dataa
     });
 
-    this.moviess.getkeyword(this.movieID).subscribe((dataaa) => {
+    this.tvsh.getkeyword(this.movieID).subscribe((dataaa) => {
       this.keywords = dataaa
 
     });
-    // this.moviess.getvid(this.movieID).subscribe((dataaaa) => {
+    // this.tvsh.getvid(this.movieID).subscribe((dataaaa) => {
     //   this.media = dataaaa.results
 
     // });
-    this.moviess.getrecomen(this.movieID).subscribe((data) => {
+    this.tvsh.getrecomen(this.movieID).subscribe((data) => {
       this.media = data.results
 
     });
@@ -60,7 +55,7 @@ export class MoviesComponent implements OnInit {
     this.responsiveOptions = [
       {
         breakpoint: '1199px',
-        numVisible: 5,
+        numVisible: 6,
         numScroll: 1
       },
       {
@@ -85,17 +80,17 @@ export class MoviesComponent implements OnInit {
   switchFunction(value = 'defult') {
     switch (value) {
       case 'defult':
-        this.moviess.getimg(this.movieID).subscribe((images) => {
+        this.tvsh.getimg(this.movieID).subscribe((images) => {
           this.imagees = images.posters
         })
         break;
       case 'posters':
-        this.moviess.getimg(this.movieID).subscribe((images) => {
+        this.tvsh.getimg(this.movieID).subscribe((images) => {
           this.imagees = images.posters
         })
         break;
       case 'backdrops':
-        this.moviess.getimg(this.movieID).subscribe((images) => {
+        this.tvsh.getimg(this.movieID).subscribe((images) => {
           this.imagees = images.backdrops
         })
         break;

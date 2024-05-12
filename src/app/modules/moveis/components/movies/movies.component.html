@@ -31,7 +31,7 @@
           <ng-template let-crew pTemplate="item">
             <div class="border-1 surface-border border-round m-2 text-center py-1 px-2">
               <div class="mb-1">
-                <a href="/people/profile/{{crew.id}}"><img *ngIf="crew.profile_path!=null" width="100px"
+                <a routerLink="/people/profile/{{crew.id}}"><img *ngIf="crew.profile_path!=null" width="100px"
                     src="https://image.tmdb.org/t/p/w500{{crew.profile_path}}" [alt]="crew.original_name"
                     class="w-6 shadow-2" /> <img *ngIf="crew.profile_path==null" width="150px"
                     src="../../../../../assets/img/981d6b2e0ccb5e968a0618c8d47671da.jpg" [alt]="crew.original_name"
@@ -125,7 +125,7 @@
                 <div class="gallery-item h-100">
                   <img src="https://image.tmdb.org/t/p/w500{{item.poster_path}}" class="img-fluid" alt="">
                   <div class="gallery-links d-flex align-items-center justify-content-center">
-                    <a href="/moveis/movie/{{ item.id}}" class="details-link mt-5"><small>More Info</small></a>
+                    <a routerLink="/moveis/movies/{{ item.id}}/" class="details-link mt-5"><small>More Info</small></a>
                   </div>
                   <h6> {{ item.original_title}} </h6>
                 </div>

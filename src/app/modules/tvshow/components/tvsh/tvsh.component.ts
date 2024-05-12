@@ -23,7 +23,13 @@ export class TvshComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    // this.acroute.params.subscribe(params => {
+    //   // Check if the ID parameter has changed
+    //   if (params['id']!=this.movieID) {
+    //     // Refresh the page
+    //     this.refreshPage();
+    //   }
+    // });
     this.tvsh.gettv(this.movieID).subscribe((data) => {
       this.tvser = data
     });
@@ -67,10 +73,9 @@ export class TvshComponent implements OnInit {
   }
 
 
-refresh(id=5){
-  this.movieID =id
-  location.reload
-}
+  // refreshPage() {
+  //   window.location.reload();
+  // }
 
   switchFunction(value = 'defult') {
     switch (value) {

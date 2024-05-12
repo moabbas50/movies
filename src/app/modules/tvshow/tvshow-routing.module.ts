@@ -5,9 +5,11 @@ import { AiringComponent } from './components/airing/airing.component';
 import { OntvComponent } from './components/ontv/ontv.component';
 import { ToprateComponent } from './components/toprate/toprate.component';
 import { TvshComponent } from './components/tvsh/tvsh.component';
+import { TvvComponent } from './components/tvv/tvv.component';
 
 const routes: Routes = [
   {path:"tvshow/:id",component:TvshComponent},
+  {path:"tvshows/:id",component:TvvComponent},
   {path:"popular",component:PopularComponent},
   {path:"airing",component:AiringComponent},
   {path:"ontv",component:OntvComponent},
