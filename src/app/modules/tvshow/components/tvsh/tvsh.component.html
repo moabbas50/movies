@@ -1,0 +1,165 @@
+<main id="main" data-aos="fade" data-aos-delay="1000">
+
+  <!-- ======= Gallery Section ======= -->
+  <section id="gallery" class="gallery ">
+    <div class="container-fluid cover"
+      style="background-image: url(https://image.tmdb.org/t/p/w500{{tvser.backdrop_path}});">
+      <div class="row gy-4  layout pb-4">
+        <div class="col-lg-4 image ">
+           <img width="450px" src="https://image.tmdb.org/t/p/w500{{tvser.poster_path}}" alt="">
+
+        </div>
+        <div class="col-lg-8   ">
+          <h2>{{tvser.original_name}} ({{tvser.first_air_date |date:"y"}})</h2>
+          <p><i class="bi bi-dot"></i> {{tvser.first_air_date}} <i class="bi bi-dot"></i><span
+              *ngFor="let genre of tvser.genres "> {{genre.name}},</span> <i class="bi bi-dot"></i></p>
+          <p> produced by: <span *ngFor="let pro of tvser.production_companies "> <img width="50px "
+                src="https://image.tmdb.org/t/p/w500{{pro.logo_path}}" alt="">{{pro.name}} , </span></p>
+          <br>
+          <h6>{{tvser.tagline}}</h6>
+          <h4> Overview</h4>
+          <p>{{tvser.overview}}</p>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="section-title mt-3">
+      <h2>Top Billed Cast</h2>
+      <div class="card">
+        <p-carousel [value]="crew.cast" [numVisible]="6" [numScroll]="1" [circular]="true"
+          [responsiveOptions]="responsiveOptions" [autoplayInterval]="num" [showIndicators]="false">
+          <ng-template let-crew pTemplate="item">
+            <div class="border-1 surface-border border-round m-2 text-center py-1 px-2">
+              <div class="mb-1 grid grid-nogutter justify-content-center">
+                <a href="/people/profile/{{crew.id}}"> <img *ngIf="crew.profile_path!=null" width="275px"
+                  src="https://image.tmdb.org/t/p/w500{{crew.profile_path}}" [alt]="crew.original_name"
+                  class=" shadow-2" /> <img *ngIf="crew.profile_path==null" width="150px"
+                  src="../../../../../assets/img/981d6b2e0ccb5e968a0618c8d47671da.jpg" [alt]="crew.original_name"
+                  class="w-6 shadow-2" /></a>
+              </div>
+              <div>
+                <h2 id="mo" class="mb-1">{{ crew.name }}</h2>
+                <h6 class="mt-0 mb-2">{{ crew.known_for_department }}</h6>
+                <h6 class="mt-0 mb-2" [ngSwitch]="crew.character">
+                  <div *ngSwitchCase="''"> </div>
+                  <div *ngSwitchDefault> ({{ crew.character }})</div>
+                </h6>
+              </div>
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
+    </div>
+    <hr>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-8">
+
+
+
+          <div class="section-title mt-3">
+            <h2>Media</h2>
+            <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group">
+              <input (change)="switchFunction('posters')" type="radio" class="btn-check" name="btnradio" id="btnradio3"
+                autocomplete="off" checked>
+              <label class="btn btn-outline-danger" for="btnradio3">Posters</label>
+
+              <input (change)="switchFunction('backdrops')" type="radio" class="btn-check" name="btnradio"
+                id="btnradio2" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio2">Backdrops</label>
+            </div>
+            <div class="card">
+              <p-galleria [value]="imagees" [showItemNavigators]="true" [responsiveOptions]="responsiveOptions"
+                [circular]="true" [numVisible]="5" [containerStyle]="{ 'max-width': '640px' }">
+                <ng-template pTemplate="item" let-item>
+                  <img src="https://image.tmdb.org/t/p/w500{{item.file_path}}" style="width: 80%; display: block;" />
+                </ng-template>
+                <ng-template pTemplate="thumbnail" let-item>
+                  <div class="grid grid-nogutter justify-content-center">
+                    <img width="90px" src="https://image.tmdb.org/t/p/w500{{item.file_path}}" style="display: block;" />
+                  </div>
+                </ng-template>
+              </p-galleria>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-3 mt-5">
+          <div>
+            <h6>Status</h6>
+            <p>{{tvser.status}}</p>
+          </div>
+          <hr>
+          <div>
+            <h6>Original Language </h6>
+            <p>{{tvser.original_language|languageName}}</p>
+          </div>
+          <hr>
+          <div>
+            <h6>Type</h6>
+            <p>{{tvser.type}}</p>
+          </div>
+          <hr>
+          <div>
+            <h6>Number of Episodes</h6>
+            <p>{{tvser.number_of_episodes}}</p>
+          </div>
+          <hr>
+          <div>
+            <h6>Number of Seasons</h6>
+            <p>{{tvser.number_of_seasons}}</p>
+          </div>
+          <hr>
+          <div>
+            <h6>Network</h6>
+            <p *ngFor="let tt of tvser.networks "><img width="50px"
+                src="https://image.tmdb.org/t/p/w500{{tt.logo_path}}" alt=""></p>
+          </div>
+          <hr>
+          <div>
+            <h6>Production Countries</h6>
+            <div class="keyw">
+              <div class="" *ngFor="let con of tvser.production_countries">
+                <p class="mx-2"><span>{{con.name}}</span></p>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div>
+            <h6>Keywords</h6>
+            <div class="keyw">
+              <div class="m-2" *ngFor="let key of keywords.results">
+                <a class=" keyclick " href="#" role="button">{{key.name}}</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="section-title mt-3">
+      <h2>Recommendations</h2>
+
+      <div class="card">
+        <p-carousel [value]="media" [numVisible]="5" [numScroll]="1" [circular]="true"
+          [responsiveOptions]="responsiveOptions" [autoplayInterval]="num" [showIndicators]="false">
+          <ng-template let-item pTemplate="item">
+            <div class="border-1 surface-border border-round m-2 text-center py-1 px-2">
+              <div class="mb-1">
+                <div class="gallery-item h-100">
+                  <img src="https://image.tmdb.org/t/p/w500{{item.poster_path}}" class="img-fluid" alt="">
+                  <div class="gallery-links d-flex align-items-center justify-content-center">
+                    <a href="/tvshow/tvshow/{{ item.id}}" class="details-link mt-5"><small>More Info</small></a>
+                  </div>
+                  <h6> {{ item.original_title}} </h6>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
+    </div>
+  </section><!-- End Gallery Section -->
+
+</main><!-- End #main -->

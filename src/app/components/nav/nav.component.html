@@ -1,0 +1,46 @@
+<header id="header" class="header d-flex align-items-center fixed-top">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+
+    <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+      <i class="bi bi-film"></i>
+      <h1>Cinema <span class="lo">X</span></h1>
+    </a>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li class="dropdown"><a routerLink="/moveis/popular"><span>Movies </span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li><a routerLink="/moveis/popular">Popular</a></li>
+            <li><a routerLink="/moveis/TopRate">Top Rated </a></li>
+            <li><a routerLink="/moveis/upComing">UpComing</a></li>
+            <li><a routerLink="/moveis/Nowplaying">Now Playing</a></li>
+
+
+          </ul>
+        </li>
+        <li class="dropdown"><a routerLink="/tvshow/popular"><span>TV Shows & Series </span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li><a routerLink="/tvshow/popular">Popular</a></li>
+            <li><a routerLink="/tvshow/airing">Airing Today</a></li>
+            <li><a routerLink="/tvshow/ontv">On Air</a></li>
+            <li><a routerLink="/tvshow/toprate">Top Rate</a></li>
+          </ul>
+        </li>
+        <li><a routerLink="/people">Popular Actors</a></li>
+      </ul>
+    </nav><!-- .navbar -->
+
+    <div class="header-social-links">
+
+
+      <a href="https://github.com/moabbas50" class="GitHub"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/in/mohamed-abbass-b00537234" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    </div>
+    <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+    <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+  </div>
+</header>

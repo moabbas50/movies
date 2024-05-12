@@ -1,0 +1,72 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h2 {
+  color: #A34343;
+}
+
+h6 {
+  color: #ff8686;
+}
+
+#mo {
+  font-size: 17.5px;
+}
+
+.card h6 {
+  font-size: 12.5px;
+}
+
+p span {
+
+  color: rgba(255, 255, 255, 0.418);
+}
+
+.cover {
+  background-position: center;
+  background-size: cover;
+}
+
+.layout {
+  background-color: rgba(0, 0, 0, 0.589);
+}
+
+section .image img{
+  border-radius: 15px;
+}
+
+.card img {
+  border-radius: 15px;
+}
+
+.card {
+  background-color: black;
+}
+
+
+.keyw {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.keyclick {
+  font-size: 14px;
+  color: white;
+  border: solid 1px white;
+  padding: 5px;
+  border-radius: 5px;
+
+}
+
+.keyclick:hover {
+  color: rgb(0, 0, 0);
+  border: solid 1px rgb(0, 0, 0);
+  background-color: #ff8686;
+  font-weight: 500;
+}

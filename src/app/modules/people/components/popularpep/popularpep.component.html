@@ -1,0 +1,32 @@
+<main id="main" data-aos="fade" data-aos-delay="1000">
+  <section id="gallery" class=" gall">
+    <div class="container-fluid">
+      <div class="section-title mt-5">
+        <h2>Popular people</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-3 mt-3" *ngFor="let itemw of peoples ">
+          <a href="/people/profile/{{itemw.id}}">
+            <div class="card" style="width:19rem;" >
+              <img *ngIf="itemw.profile_path!=null" src="https://image.tmdb.org/t/p/w500{{itemw.profile_path}}" class="card-img-top" alt="..."><img *ngIf="itemw.profile_path==null"  width="150px" src="../../../../../assets/img/981d6b2e0ccb5e968a0618c8d47671da.jpg" alt="....."
+              class="w-6 shadow-2" />
+              <div class="card-body">
+                <h5 class="card-title">{{itemw.original_name}}</h5>
+                <p><span *ngFor="let item of itemw.known_for" class="card-text">{{item.original_title}},
+                  </span>..........</p>
+
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-3">
+      <div class="row d-flex justify-content-center">
+        <a (click)=" decrease()" href="/people/popular/{{id}}"  class="col-1 btn  btn-outline-secondary"><i class="bi bi-arrow-left"></i></a>
+        <span id="pagi" class="pagi  col-1 btn  btn-outline-secondary" >{{id}}</span>
+        <a (click)="increase()"  href="/people/popular/{{id}}" class="col-1 btn  btn-outline-secondary"><i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+</main>

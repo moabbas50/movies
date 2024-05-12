@@ -1,0 +1,31 @@
+
+<main id="main" data-aos="fade" data-aos-delay="1000">
+
+  <!-- ======= Gallery Section ======= -->
+  <section id="gallery" class="gallery ">
+    <div class="container-fluid">
+      <div class="section-title mt-3 mb-3">
+        <h2>Now Playing Movies</h2>
+      </div>
+      <div class="row gy-4 justify-content-center" >
+
+
+        <div *ngFor="let mov of movie" class="col-xl-3 col-lg-4 col-md-6 " >
+          <div class="gallery-item h-100">
+            <img src="https://image.tmdb.org/t/p/w500{{mov.poster_path}}" class="img-fluid" alt="">
+            <div class="gallery-links d-flex align-items-center justify-content-center">
+              <h3> {{ mov.original_title}} </h3>
+              <p>{{mov.release_date|date:'y'}}</p>
+              <a routerLink="/moveis/movie/{{ mov.id}}" class="details-link mt-5"><small>More Info</small></a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      </div>
+  </section><!-- End Gallery Section -->
+
+</main><!-- End #main -->
+

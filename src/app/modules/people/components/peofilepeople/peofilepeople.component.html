@@ -1,0 +1,72 @@
+<main id="main" data-aos="fade" data-aos-delay="1000">
+  <section id="gallery" class="gallery ">
+    <div class="container-fluid p-5" style="background-color: rgba(61, 61, 61, 0.521);">
+      <div class="row">
+        <div class="col-lg-3 col-md-3 side">
+            <div class="gallery-item ">
+              <img  src="https://image.tmdb.org/t/p/w500{{datas.profile_path}}"
+                class="img-fluid" alt="">
+              <div class="gallery-links d-flex align-items-center justify-content-center">
+                
+              </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8">
+          <div class="title">
+            <h2>Name: {{datas.name}}</h2>
+            <h4>Biography</h4>
+            <p>{{datas.biography}}</p>
+            <div class="row">
+              <div class="col-md-3">
+                <h6>
+                  Known For<p>{{datas.known_for_department}}</p>
+                </h6>
+              </div>
+              <div class="col-md-3">
+                <h6>
+                  Known Credits<p>{{peple.length}}</p>
+                </h6>
+              </div>
+              <div class="col-md-3">
+                <h6>
+                  Birthday , Place of Birth<p>{{datas.birthday}} <br> {{datas.place_of_birth}}</p>
+
+                </h6>
+              </div>
+              <div class="col-md-4">
+                <h6 >
+                  Also Known As <br><span *ngFor="let item of datas.also_known_as"> {{ item }}, </span>
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="known-for-u">
+      <h4 class="mx-5 mt-3" >Known For</h4>
+      <div class="card">
+        <p-carousel [value]="peple" [numVisible]="5" [numScroll]="1" [circular]="true"
+          [responsiveOptions]="responsiveOptions" [autoplayInterval]="num" [showIndicators]="false">
+          <ng-template let-item pTemplate="item">
+            <div class="border-1 surface-border border-round m-2 text-center py-1 px-2">
+              <div class="mb-1">
+                <div class="gallery-item h-100">
+                  <img *ngIf="item.poster_path!=null" src="https://image.tmdb.org/t/p/w500{{item.poster_path}}"
+                    class="img-fluid" alt="">
+                  <img *ngIf="item.poster_path==null" width="150px" src="../../../../../assets/img/images.png"
+                    [alt]="item.original_name" class="w-6 shadow-2" />
+                  <div class="gallery-links d-flex align-items-center justify-content-center">
+                    <a href="/moveis/movie/{{ item.id}}" class="details-link mt-5"><small>More Info</small></a>
+                  </div>
+                  <h6> {{ item.original_title}} </h6>
+                  <h6> {{ item.original_name}} </h6>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </p-carousel>
+      </div>
+    </div>
+  </section>
+</main>
