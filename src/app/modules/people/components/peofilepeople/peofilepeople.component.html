@@ -7,7 +7,7 @@
               <img  src="https://image.tmdb.org/t/p/w500{{datas.profile_path}}"
                 class="img-fluid" alt="">
               <div class="gallery-links d-flex align-items-center justify-content-center">
-                
+
               </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
                   <img *ngIf="item.poster_path==null" width="150px" src="../../../../../assets/img/images.png"
                     [alt]="item.original_name" class="w-6 shadow-2" />
                   <div class="gallery-links d-flex align-items-center justify-content-center">
-                    <a href="/moveis/movie/{{ item.id}}" class="details-link mt-5"><small>More Info</small></a>
+                    <a routerLink="/moveis/movie/{{ item.id}}" class="details-link mt-5"><small>More Info</small></a>
                   </div>
                   <h6> {{ item.original_title}} </h6>
                   <h6> {{ item.original_name}} </h6>

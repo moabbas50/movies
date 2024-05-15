@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navbarlink.addEventListener('click', () => {
       if (document.querySelector('.mobile-nav-active')) {
         mobileNavToogle();
+
       }
     });
 
@@ -76,9 +77,38 @@ document.addEventListener('DOMContentLoaded', () => {
         let dropDownIndicator = this.querySelector('.dropdown-indicator');
         dropDownIndicator.classList.toggle('bi-chevron-up');
         dropDownIndicator.classList.toggle('bi-chevron-down');
+
       }
     })
   });
+
+// close navmobil with click
+
+
+
+const navc = document.querySelectorAll('.navbar .dropdown li .c');
+
+navc.forEach(el => {
+  el.addEventListener('click', function (event) {
+    if (document.querySelector('.mobile-nav-active')) {
+      event.preventDefault();
+      // this.classList.toggle('active');
+      // this.nextElementSibling.classList.toggle('dropdown-active');
+
+      // let dropDownIndicator = this.querySelector('.dropdown-indicator');
+      // dropDownIndicator.classList.toggle('bi-chevron-up');
+      // dropDownIndicator.classList.toggle('bi-chevron-down');
+
+    }
+         mobileNavToogle();
+  })
+});
+
+
+
+
+
+
 
   /**
    * Scroll top button
